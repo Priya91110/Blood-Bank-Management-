@@ -1,0 +1,19 @@
+
+{%extends 'app1/index.html'%}
+{%load static%}
+{%block content%}
+<form class="" action="" method="post">
+
+<!-- {{form}} -->
+{%csrf_token%}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1>Do you Want to Delete ?</h1>
+    <p>
+      <button type="submit" name="button" class="btn btn-danger">Delete</button>
+      <a href="/acceptorurl" class="btn btn-info">Cancel</a>
+    </p>
+  </div>
+</div>
+</form>
+{%endblock%}

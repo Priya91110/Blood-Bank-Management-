@@ -1,0 +1,49 @@
+{%extends 'app1/index.html'%}
+{%load static%}
+{%block content%}
+<style media="screen">
+  table{
+      color:black;
+      font-size:35px;
+      font-family:Monotype Corsiva;
+      margin-top:50px;
+      margin-left:50px;
+      font-height:3px;
+      line-height:50px;.
+      font-weight:bold;
+  }
+  h1{
+    text-align:center;
+    font-size:45px;
+    font-weight:bold;
+    font-family:Monotype Corsiva;
+    margin-top:50px;
+  }
+   button{
+     margin-left:180px;
+     margin-top:25px;
+     padding:5px;
+     font-family:Monotype Corsiva;
+     font-size:20px;
+   }
+</style>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+      <div class="container">
+        <h1>Donor Form</h1>
+        <form class="form-group" method="post" enctype="multipart/form-data">
+          <table>
+            {{form}}
+            {%csrf_token%}
+          </table>
+            <button type="submit" name="button"  class="btn btn-success btn-lg">Create / Update</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-6">
+        <img src="{%static 'app1/img/donorimg.jpg'%}" alt="" width="100%">
+    </div>
+  </div>
+</div>
+{%endblock%}

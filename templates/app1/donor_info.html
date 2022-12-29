@@ -1,0 +1,45 @@
+{%extends 'app1/index.html'%}
+{%load static%}
+{%block content%}
+<style media="screen">
+  table{
+    width: 100%;
+    height: 100%;
+  
+    color:black;
+    text-align: center;
+  }
+  th{
+    font-size: 25px;
+    border: 5px solid blue;
+  }
+  td{
+    font-weight: bold;
+    font-size:20px;
+    border: 2px dashed blue;
+    color:navy blue;
+  }
+
+</style>
+<div class="container-fluid">
+<table class="table-hover">
+{% if doners %}
+   <tr>
+  <th>S.No.</th><th>Photo</th><th>Reg No.</th><th>Doner Name</th><th>Age</th><th>Blood Group</th><th>Mobile Number</th><th>Address</th><th>Operations</th>
+   </tr>
+   {%for i in doners %}
+   <tr>
+     <td>{{forloop.counter}}</td>
+     <td><img src="{{i.photo.url}}" alt="" width="100"></td>    <td>{{i.regno}}</td>
+     <td>{{i.name}}</td>
+     <td>{{i.age}}</td>
+     <td>{{i.bloodgroup}}</td>   <td>{{i.mobile}}</td>  <td>{{i.address}}</td>
+    <td><a href="/donorupdateurl/{{i.id}}" class="btn btn-success btn-lg">Update</a>      <a href="/donordeleteurl/{{i.id}}" class="btn btn-danger btn-lg">Delete</a></td>
+   </tr><br>
+   {%endfor%}
+   {%else%}
+   No record found
+</table>
+{%endif%}
+</div>
+{%endblock%}
